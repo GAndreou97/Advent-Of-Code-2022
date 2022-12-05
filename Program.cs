@@ -6,7 +6,8 @@
         {
             //Console.WriteLine(Day1.Part1());
             //Console.WriteLine(Day1.Part2());
-            Console.WriteLine(Day2.part1());
+            //Console.WriteLine(Day2.part1());
+            Console.WriteLine(Day2.part2());
         }
     }
 }

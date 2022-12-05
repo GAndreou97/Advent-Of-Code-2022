@@ -28,6 +28,34 @@ namespace AdventOfCode2022
 
             return TotalScore;
         }
+
+        public static int part2(){
+
+            int TotalScore = 0;
+            foreach (string line in System.IO.File.ReadLines(@"/Users/georgeandreou/Documents/GitHub/Advent-Of-Code-2022/Day 2/Input.txt"))
+            {
+                if(line[0] == 'A'){
+                    if(line[2] == 'X') {TotalScore = TotalScore + 3;}
+                    else if(line[2] == 'Y') {TotalScore = TotalScore + 4;}
+                    else if(line[2] == 'Z') {TotalScore = TotalScore + 8;}
+                }
+
+                if(line[0] == 'B'){
+                    if(line[2] == 'X') {TotalScore = TotalScore + 1;}
+                    else if(line[2] == 'Y') {TotalScore = TotalScore + 5;}
+                    else if(line[2] == 'Z') {TotalScore = TotalScore + 9;}
+                }
+
+                if(line[0] == 'C'){
+                    if(line[2] == 'X') {TotalScore = TotalScore + 2;}
+                    else if(line[2] == 'Y') {TotalScore = TotalScore + 6;}
+                    else if(line[2] == 'Z') {TotalScore = TotalScore + 7;}
+                }
+            }
+
+            return TotalScore;
+        }
+
     }
 }
 
@@ -36,3 +64,4 @@ namespace AdventOfCode2022
 //C & Z = Scissors
 //R = 1, P = 2, S = 3
 //Win = 6, Draw = 3, Loss = 0
+//x = lose, y = draw, z = win
