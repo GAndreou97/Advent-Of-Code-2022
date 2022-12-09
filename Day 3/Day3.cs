@@ -40,6 +40,60 @@ namespace AdventOfCode2022
             return priorityScore;
         }
 
+        public static int part2() {
+            int linelength;
+            string[] splitPacks = new string[3];
+            string Duplicates = "";
+            string allDupes = "";
+            int priorityScore = 0;
+            int linecounter =0;
+            string lineone = "";
+            string linetwo = "";
+            string linethree = "";
+            
+
+            foreach (string line in System.IO.File.ReadLines(@"/Users/georgeandreou/Documents/GitHub/Advent-Of-Code-2022/Day 3/Input.txt")){
+                linelength = line.Length;
+                //splitPacks = splitPack3(line,linelength);  
+                //need to do comparison and build a string
+                linecounter++;
+                if(linecounter == 1){lineone = line;}
+                if(linecounter == 2){linetwo = line;}
+                if(linecounter == 3){linethree = line;}
+
+                if (linecounter == 3){
+                    for (int x = 0; x < lineone.Length; x++){
+                        for (int y = 0; y < linetwo.Length; y++){
+                            for (int z =0; z < linethree.Length; z++){
+
+                                if (lineone[x] == linetwo[y] && lineone[x]==linethree[z]) {
+                                    if (Duplicates.Contains(lineone[x])){
+                                        //if it contains it then do nothing
+                                    }
+                                else{Duplicates = Duplicates + lineone[x];}
+
+                                }
+                            }
+
+
+                        }
+                    }
+                    linecounter =0;
+                }
+
+                //put them into the permanent memory and wipe the temp duplicate one for the next line
+                allDupes = allDupes + Duplicates;
+                Duplicates = "";
+                
+            }
+
+            //then need to run the TotalVal method and return it
+            priorityScore = TotalVal(allDupes);
+
+            return priorityScore;
+        }
+
+
 
         public static int TotalVal (String DuplicateList){
             int TotalValofItems=0;
@@ -228,6 +282,33 @@ namespace AdventOfCode2022
             return splitPacks;
         }
 
+        public static string[] splitPack3 (String line, int length){
+            string[] splitPacks = new string[3];
+            string tempWord ="";
+
+            for (int x=0;x<length/3;x++){
+                tempWord = tempWord + line[x];
+            }
+            splitPacks[0] = tempWord;
+            tempWord = "";
+
+            for (int x=length/3;x<length;x++){
+                tempWord = tempWord + line[x];
+            }
+            splitPacks[1] = tempWord;
+            tempWord = "";
+
+            for (int x=length-(length/3);x<length;x++){
+                tempWord = tempWord + line[x];
+            }
+            splitPacks[2] = tempWord;
+
+            return splitPacks;
+        }
+
+
     }
+
+
 
 }
