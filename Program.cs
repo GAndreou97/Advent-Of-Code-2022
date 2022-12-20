@@ -10,7 +10,9 @@
             //Console.WriteLine(Day2.part2());
             //Console.WriteLine(Day3.part1());
             //Console.WriteLine(Day3.part2());
-            Console.WriteLine(Day4.part1());
+            //Console.WriteLine(Day4.part1());
+            //Console.WriteLine(Day4.part2());
+            Console.WriteLine(Day5.part1());
             
         }
     }
