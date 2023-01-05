@@ -17,14 +17,43 @@ namespace AdventOfCode2022
             return marker;
         }
 
+        public static int part2(){
+            string[] input = File.ReadAllLines(@"/Users/georgeandreou/Documents/GitHub/Advent-Of-Code-2022/Day 6/Input.txt");
+            int marker = 0;
+            bool dupefound =  false;
+
+            for(int x = 13; x< input[0].Length; x++){
+                // for (int y = 1; y < 14; y++) {
+                //  if(input[0][x] == input[0][x-y]){dupefound = true;}   
+                //  //Console.WriteLine(y); 
+
+                for(int w = 0; w < 13; w++) {
+                    for (int y = 1; y < 14-w; y++) {
+                        if(input[0][x-w] == input[0][x-w-y]){dupefound = true;}   
+                 //Console.WriteLine(y); 
+                    }
+                }
+
+
+                if(dupefound == false) {
+                    marker = x+1;
+                    break;
+                }
+                else {dupefound = false;}
+
+                }
+
+
+               
+
+
+            return marker;
 
 
 
+            
 
-
-
-
-
+        }
 
 
     }
